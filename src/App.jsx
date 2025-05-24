@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import ContactCard from "./components/ContactCard";
 import GalleryCarousel from "./components/GalleryCarousel";
+import FancyButton from "./components/FancyButton";
 import "./App.css";
-import logo from "./assets/MUNSOCLOGO2-white.png";
+import logolight from "./assets/MUNSOCLOGO2-white.png";
+import logodark from "./assets/MUNSOCLOGO2-black.png";
 
 function App() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -122,6 +124,11 @@ MUN simulations engage thousands of students each year in developing public spea
         };
     }, [view]);
 
+    useEffect(() => {
+        document.body.classList.remove("light", "dark");
+        document.body.classList.add(isDarkTheme ? "dark" : "light");
+    }, [isDarkTheme]);
+
     return (
         <div
             className={`container ${isDarkTheme ? "dark" : "light"}`}
@@ -141,7 +148,10 @@ MUN simulations engage thousands of students each year in developing public spea
             >
                 {window.innerWidth >= 768 && (
                     <div className="sidebar-logo">
-                        <img src={logo} alt="Sidebar Logo" />
+                        <img
+                            src={isDarkTheme ? logolight : logodark}
+                            alt="Sidebar Logo"
+                        />
                     </div>
                 )}
                 <ul className="nav-items">
