@@ -217,7 +217,7 @@ body.light {
 }
 
 .light .svg-launch svg {
-    filter: drop-shadow(0 0 6px #005eff) drop-shadow(0 0 3px #2875fb);
+    filter: drop-shadow(0 0 6px #007acc) drop-shadow(0 0 3px #2a8fd2);
 }
 
 .svg-launch path {
@@ -230,7 +230,7 @@ body.light {
 }
 
 .light .svg-launch path {
-    stroke: #005eff;
+    stroke: #007acc;
     stroke-width: 2;
 }
 
