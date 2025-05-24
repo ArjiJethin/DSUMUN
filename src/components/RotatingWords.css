@@ -1,108 +1,93 @@
-.rotating-content {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
     font-family: "Poppins", sans-serif;
-    font-size: 24px;
-    line-height: 40px;
-    color: #44ccff;
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
 }
 
-.rotating-container {
+.text {
+    display: flex;
+    align-items: baseline; /* ← aligns text properly */
+    justify-content: center;
+    margin-top: 2rem;
+    font-size: 2rem;
+    flex-wrap: wrap;
+    gap: 0rem;
+}
+
+.text p {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.label-text {
+    font-size: 2rem !important;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.word {
+    position: absolute;
+    display: inline-block;
+    white-space: nowrap;
+    opacity: 0;
+    top: 0;
+    left: 0;
+}
+
+.word-wrapper {
     position: relative;
     display: flex;
-    align-items: center;
-    overflow: hidden;
-    height: 40px;
-    width: 30%;
-    overflow: hidden;
-    padding: 0 20px;
-    font-weight: 600;
+    align-items: baseline;
 }
 
-.rotating-container::before,
-.rotating-container::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 10px;
-    height: 100%;
-    background: transparent;
+.letter {
+    display: inline-block;
+    transform: translateZ(25px);
+    transform-origin: 50% 50% 25px;
 }
 
-.rotating-text {
-    display: inline;
+.letter.out {
+    transform: rotateX(90deg);
+    transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
-.rotating-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    left: 120px;
-    top: 0;
-    animation: rotateWords 10s infinite;
+.letter.behind {
+    transform: rotateX(-90deg);
 }
 
-.rotating-item {
-    height: 40px;
-    line-height: 40px;
-    margin: 0;
+.letter.in {
+    transform: rotateX(0deg);
+    transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes rotateWords {
-    0%,
-    8.25%,
-    100% {
-        transform: translateY(0);
-    }
-    10.75%,
-    17% {
-        transform: translateY(-40px);
-    }
-    19.5%,
-    25.75% {
-        transform: translateY(-80px);
-    }
-    28.25%,
-    34.5% {
-        transform: translateY(-120px);
-    }
-    37%,
-    43.25% {
-        transform: translateY(-160px);
-    }
-    45.75%,
-    52% {
-        transform: translateY(-200px);
-    }
-    54.5%,
-    60.75% {
-        transform: translateY(-240px);
-    }
-    63.25%,
-    69.5% {
-        transform: translateY(-280px);
-    }
-    72%,
-    78.25% {
-        transform: translateY(-240px);
-    }
-    80.75%,
-    87% {
-        transform: translateY(-200px);
-    }
-    89.5%,
-    95.75% {
-        transform: translateY(-160px);
-    }
-    98.25% {
-        transform: translateY(-120px);
-    }
+.wisteria {
+    color: #8e44ad;
 }
 
+.belize {
+    color: #2980b9;
+}
+
+.pomegranate {
+    color: #c0392b;
+}
+
+.green {
+    color: #16a085;
+}
+
+.midnight {
+    color: #00b7ff;
+}
+
+/* Responsive fix for mobile screens */
 @media screen and (max-width: 768px) {
-    .rotating-container {
-        width: 80%;
+    .text {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-size: 1.5rem;
     }
 }

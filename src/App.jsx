@@ -727,15 +727,17 @@ MUN simulations engage thousands of students each year in developing public spea
                         </div>
                     </div>
                 </div>
-                <div className="greeting">
-                    <MorphingText texts={["Welcome", "to", "DSUMUN", "III"]} />
-                </div>
             </header>
 
             <main className="main">
                 <div className="main-container">
                     {view === "home" && (
                         <div className="main-layout">
+                            <div className="greeting">
+                                <MorphingText
+                                    texts={["Welcome", "to", "DSUMUN", "III"]}
+                                />
+                            </div>
                             <div id="about" className="card about-card">
                                 <h2>About Us</h2>
                                 <p>

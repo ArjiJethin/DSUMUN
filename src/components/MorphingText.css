@@ -4,7 +4,7 @@
     position: relative;
     margin: 40px 20px;
     width: 100%;
-    left: -20%;
+    left: -35%;
     min-height: 120px; /* enough height for blur & overflow */
     overflow: visible;
     text-align: center;
