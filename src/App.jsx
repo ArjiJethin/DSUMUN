@@ -44,7 +44,7 @@ MUN simulations engage thousands of students each year in developing public spea
         const dot = document.querySelector(".cursor-dot");
         const follower = document.querySelector(".cursor-follower");
         const hoverTargets = document.querySelectorAll(
-            ".nav-items li, .card-button, .btn, .event-desc"
+            ".nav-items li, .card-button, .btn, .event-desc, .sidebar-logo"
         );
 
         let mouseX = 0,
@@ -153,6 +153,7 @@ MUN simulations engage thousands of students each year in developing public spea
                     <div className="sidebar-logo">
                         <img
                             src={isDarkTheme ? logolight : logodark}
+                            onClick={() => setView("home")}
                             alt="Sidebar Logo"
                         />
                     </div>
