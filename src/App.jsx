@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import ContactCard from "./components/ContactCard";
 import GalleryCarousel from "./components/GalleryCarousel";
 import "./App.css";
+import logo from "./assets/MUNSOCLOGO2-white.png";
 
 function App() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -132,10 +133,7 @@ MUN simulations engage thousands of students each year in developing public spea
             <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
                 {window.innerWidth >= 768 && (
                     <div className="sidebar-logo">
-                        <img
-                            src="src\assets\MUNSOCLOGO2-white.png"
-                            alt="Sidebar Logo"
-                        />
+                        <img src={logo} alt="Sidebar Logo" />
                     </div>
                 )}
                 <ul className="nav-items">
