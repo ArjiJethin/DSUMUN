@@ -123,14 +123,22 @@ MUN simulations engage thousands of students each year in developing public spea
     }, [view]);
 
     return (
-        <div className={`container ${isDarkTheme ? "dark" : "light"}`}>
+        <div
+            className={`container ${isDarkTheme ? "dark" : "light"}`}
+            onClick={() => {
+                if (sidebarOpen) setSidebarOpen(false);
+            }}
+        >
             <div
                 className="hamburger"
                 onClick={() => setSidebarOpen(!sidebarOpen)}
             >
                 <i className="fas fa-bars"></i>
             </div>
-            <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
+            <div
+                className={`sidebar ${sidebarOpen ? "open" : ""}`}
+                onClick={(e) => e.stopPropagation()}
+            >
                 {window.innerWidth >= 768 && (
                     <div className="sidebar-logo">
                         <img src={logo} alt="Sidebar Logo" />
@@ -780,7 +788,7 @@ MUN simulations engage thousands of students each year in developing public spea
 
                     {view === "events" &&
                         (highlight ? (
-                            <div>
+                            <div className="main-highlight">
                                 <div className="highlight-wrapper">
                                     <h1 className="highlight-title">
                                         {highlight.title}

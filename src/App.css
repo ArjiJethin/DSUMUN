@@ -648,6 +648,27 @@ body {
     .cursor-follower {
         display: none;
     }
+
+    .main-highlight {
+        max-width: 300px;
+    }
+
+    .gallery-carousel-wrapper {
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;
+        margin-top: 1rem;
+    }
+
+    .carousel {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-container {
+        width: 90vw;
+        margin: auto;
+    }
 }
 
 /* Desktop view (adjust 768px as needed) */

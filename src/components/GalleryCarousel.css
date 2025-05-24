@@ -1,8 +1,10 @@
 .gallery-carousel-wrapper {
+    width: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 4rem 0;
+    margin: 2rem 0;
 }
 
 .carousel {
@@ -117,7 +119,7 @@
     justify-content: center;
     top: 50%;
     z-index: 2;
-    cursor: pointer;
+    cursor: none;
     user-select: none;
     background: unset;
     border: unset;
@@ -141,15 +143,28 @@
 
 @media (max-width: 768px) {
     .gallery-carousel-wrapper {
-        padding: 2rem 0;
+        width: 100%;
+        padding: 1rem 0;
+        overflow-x: hidden;
     }
 
     .carousel {
-        width: 10rem;
-        height: 10rem;
+        min-height: 25rem;
+    }
+
+    .card-container {
+        display: flex !important;
+        opacity: 1 !important;
+        position: relative !important;
+        transform: none !important;
+    }
+
+    .gallery-card {
+        width: 100%;
+        max-width: 100%;
     }
 
     .nav {
-        font-size: 2rem;
+        display: none;
     }
 }

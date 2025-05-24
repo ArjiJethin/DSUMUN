@@ -1,9 +1,9 @@
-// src/components/GalleryCarousel.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TiChevronLeftOutline, TiChevronRightOutline } from "react-icons/ti";
+import { useSwipeable } from "react-swipeable";
 import "./GalleryCarousel.css";
 
-const MAX_VISIBILITY = 3;
+const getMaxVisibility = () => (window.innerWidth < 768 ? 0 : 3);
 
 const Card = ({
     imageUrl,
@@ -24,14 +24,30 @@ const Card = ({
 );
 
 const Carousel = ({ children }) => {
-    const [active, setActive] = useState(0); // instead of 2
+    const [active, setActive] = useState(0);
+    const [maxVisibility, setMaxVisibility] = useState(getMaxVisibility());
     const count = React.Children.count(children);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setMaxVisibility(getMaxVisibility());
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const goLeft = () => setActive((i) => Math.max(0, i - 1));
     const goRight = () => setActive((i) => Math.min(count - 1, i + 1));
 
+    const swipeHandlers = useSwipeable({
+        onSwipedLeft: goRight,
+        onSwipedRight: goLeft,
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: false,
+    });
+
     return (
-        <div className="carousel">
+        <div className="carousel" {...swipeHandlers}>
             <button
                 className="nav left"
                 onClick={goLeft}
@@ -45,16 +61,33 @@ const Carousel = ({ children }) => {
                     className="card-container"
                     style={{
                         "--active": i === active ? 1 : 0,
-                        "--offset": (active - i) / 3,
+                        "--offset": maxVisibility === 0 ? 0 : (active - i) / 3,
                         "--direction": Math.sign(active - i),
-                        "--abs-offset": Math.abs(active - i) / 3,
-                        pointerEvents: active === i ? "auto" : "none",
+                        "--abs-offset":
+                            maxVisibility === 0 ? 0 : Math.abs(active - i) / 3,
+                        pointerEvents: i === active ? "auto" : "none",
                         opacity:
-                            Math.abs(active - i) >= MAX_VISIBILITY ? "0" : "1",
+                            maxVisibility === 0
+                                ? i === active
+                                    ? "1"
+                                    : "0"
+                                : Math.abs(active - i) >= maxVisibility
+                                ? "0"
+                                : "1",
                         display:
-                            Math.abs(active - i) > MAX_VISIBILITY
+                            maxVisibility === 0
+                                ? i === active
+                                    ? "flex"
+                                    : "none"
+                                : Math.abs(active - i) > maxVisibility
                                 ? "none"
                                 : "block",
+                        ...(maxVisibility === 0
+                            ? {
+                                  transform: "none",
+                                  position: "relative",
+                              }
+                            : {}),
                     }}
                 >
                     {child}
