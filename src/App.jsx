@@ -4,6 +4,8 @@ import ContactCard from "./components/ContactCard";
 import GalleryCarousel from "./components/GalleryCarousel";
 import FancyButton from "./components/FancyButton";
 import RotatingWords from "./components/RotatingWords";
+import MorphingText from "./components/MorphingText";
+
 import "./App.css";
 import logolight from "./assets/MUNSOCLOGO2-white.png";
 import logodark from "./assets/MUNSOCLOGO2-black.png";
@@ -723,6 +725,9 @@ MUN simulations engage thousands of students each year in developing public spea
                             <span className="edition gold">EDITION II</span>
                         </div>
                     </div>
+                </div>
+                <div className="greeting">
+                    <MorphingText texts={["Welcome", "to", "DSUMUN", "III"]} />
                 </div>
             </header>
 

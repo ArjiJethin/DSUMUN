@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap");
+
+#container {
+    position: relative;
+    margin: 40px 20px;
+    width: 100%;
+    left: -20%;
+    min-height: 120px; /* enough height for blur & overflow */
+    overflow: visible;
+    text-align: center;
+    filter: url(#threshold) blur(0.6px);
+}
+
+#text1,
+#text2 {
+    position: absolute;
+    width: 100%;
+    font-family: "Raleway", sans-serif;
+    font-size: 60pt;
+    text-align: center;
+    user-select: none;
+    color: white;
+}
+.light #text1,
+.light #text2 {
+    color: black;
+}
+
+@media (max-width: 768px) {
+    #container {
+        left: -15%;
+        margin: 20px 10px 0px 10;
+    }
+    #text1,
+    #text2 {
+        font-size: 40pt;
+    }
+}
