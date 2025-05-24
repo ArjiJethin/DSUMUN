@@ -1,0 +1,223 @@
+.contact-card__wrapper {
+    position: relative;
+    margin: 80px auto 0 auto;
+    width: 150%;
+    max-width: 800px; /* was 655px */
+    aspect-ratio: 655 / 342;
+    left: -70px;
+}
+
+.contact-card {
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/279756/2017_bg.png");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: -20px 30px 116px 0 rgba(92, 15, 15, 0.54);
+    overflow: hidden;
+    z-index: 4;
+}
+
+.contact-card__orangeShine,
+.contact-card__greenShine {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    pointer-events: none;
+}
+
+.contact-card__orangeShine {
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/279756/orange_shine.png");
+    position: absolute;
+    left: 28%;
+    bottom: -10%; /* push it down slightly */
+    width: 100%;
+    height: 120%; /* make it more flexible */
+    z-index: 2;
+}
+
+.contact-card__greenShine {
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/279756/green_shine.png");
+    left: 10%;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    z-index: 1;
+}
+
+.contact-card__year {
+    font-family: "Oswald", sans-serif;
+    text-align: center;
+    color: #fff;
+    font-size: clamp(3rem, 10vw, 140px);
+    line-height: 1.1;
+    padding: 2vw 0;
+    font-weight: 100;
+    position: relative;
+    z-index: 2;
+    margin-right: 0;
+}
+
+.contact-card__thankyou {
+    font-family: "Oswald", sans-serif;
+    position: absolute;
+    text-transform: uppercase;
+    font-weight: 100;
+    left: 28%;
+    bottom: 15%;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 5px;
+    line-height: 17px;
+    font-size: clamp(10px, 2vw, 12px);
+}
+
+.contact-card__circle,
+.contact-card__smallCircle {
+    position: absolute;
+    border-radius: 100%;
+    background-image: linear-gradient(-239deg, #3b4576 0%, #242a48 59%);
+    box-shadow: -10px -15px 90px 0 #191c41;
+    z-index: 2;
+}
+
+.contact-card__circle {
+    right: 5%;
+    bottom: 5%;
+    width: 30%;
+    aspect-ratio: 1;
+}
+
+.contact-card__smallCircle {
+    right: 40%;
+    top: -7%;
+    width: 8%;
+    aspect-ratio: 1;
+}
+
+.contact-card__outer-year {
+    font-family: "Orbitron";
+}
+
+.contact-card__outer-year span {
+    position: absolute;
+    color: #fff;
+    font-size: clamp(12px, 1.5vw, 16px);
+    z-index: 4;
+}
+
+.contact-card__outer-year span:first-child {
+    top: 5%;
+    left: 5%;
+}
+
+.contact-card__outer-year span:nth-child(2) {
+    top: 5%;
+    right: 5%;
+}
+
+.contact-card__outer-year span a {
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.contact-card__outer-year span a:hover {
+    transform: scale(1.3);
+}
+
+.contact-card__comet {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 100%;
+}
+
+.contact-card__cometOuter {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+
+.contact-card__comet--second {
+    right: -30px;
+    top: -15px;
+    transform: scale(0.6);
+}
+
+.contact-card__comet::before,
+.contact-card__comet::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 27%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    border-radius: 20px;
+    transform: rotate(-45deg);
+}
+
+.contact-card__comet::before {
+    width: 18px;
+    height: 70px;
+    transform-origin: -2px 13px;
+}
+
+.contact-card__comet::after {
+    width: 12px;
+    height: 80px;
+    transform-origin: 0px 8px;
+}
+
+/* Media Query for small screens */
+@media (max-width: 768px) {
+    .contact-card__wrapper {
+        left: -30px;
+        top: -40px;
+    }
+    .contact-card__thankyou {
+        font-size: 10px;
+        left: 20%;
+        bottom: 12%;
+    }
+
+    .contact-card__outer-year span {
+        font-size: 14px;
+    }
+
+    .contact-card__greenShine {
+        width: 60%;
+    }
+
+    .contact-card__orangeShine {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-card__year {
+        font-size: 10vw;
+        padding: 2vw 0;
+    }
+
+    .contact-card__thankyou {
+        font-size: 9px;
+        left: 18%;
+        bottom: 10%;
+    }
+
+    .contact-card__outer-year span {
+        font-size: 12px;
+    }
+
+    .contact-card__wrapper {
+        margin-top: 60px;
+    }
+}
