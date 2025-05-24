@@ -82,14 +82,38 @@ body.light {
 .hamburger {
     position: fixed;
     top: 20px;
-    left: 20px;
+    left: 15px;
     font-size: 28px;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 16px; /* makes it a rounded squircle */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
     color: white;
     z-index: 1100;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.hamburger.hide-bg {
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
 }
 
 .light .hamburger {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     color: #000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .bulb {
@@ -351,6 +375,10 @@ body.light {
 .card p {
     font-size: 0.95rem;
     color: #b5eaff;
+}
+
+.light .rotating-content {
+    color: #007acc;
 }
 
 .card-button {
@@ -659,8 +687,9 @@ body.light {
 }
 
 .carousel-main .nav {
+    height: 20px;
     position: absolute;
-    bottom: -8rem;
+    top: 28rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 5;
@@ -743,6 +772,9 @@ body.light {
 }
 
 @media (max-width: 768px) {
+    .carousel-main .nav {
+        top: 30rem;
+    }
     .sidebar-logo {
         display: none;
     }

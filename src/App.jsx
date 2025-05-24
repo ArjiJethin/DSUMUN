@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import ContactCard from "./components/ContactCard";
 import GalleryCarousel from "./components/GalleryCarousel";
 import FancyButton from "./components/FancyButton";
+import RotatingWords from "./components/RotatingWords";
 import "./App.css";
 import logolight from "./assets/MUNSOCLOGO2-white.png";
 import logodark from "./assets/MUNSOCLOGO2-black.png";
@@ -137,7 +138,7 @@ MUN simulations engage thousands of students each year in developing public spea
             }}
         >
             <div
-                className="hamburger"
+                className={`hamburger ${sidebarOpen ? "hide-bg" : ""}`}
                 onClick={() => setSidebarOpen(!sidebarOpen)}
             >
                 <i className="fas fa-bars"></i>
@@ -750,7 +751,7 @@ MUN simulations engage thousands of students each year in developing public spea
                                     by democratic institutions, a free press,
                                     and international cooperation.
                                 </p>
-                                <button className="card-button">Explore</button>
+                                <RotatingWords />
                             </div>
 
                             <div className="grid two-column">
@@ -759,12 +760,11 @@ MUN simulations engage thousands of students each year in developing public spea
                                     <p>
                                         Get in touch with the MUN society team.
                                     </p>
-                                    <button
+                                    <FancyButton
                                         onClick={() => setView("contact")}
-                                        className="card-button"
                                     >
                                         Reach Out
-                                    </button>
+                                    </FancyButton>
                                 </div>
                                 <div className="card">
                                     <h2>Events</h2>
@@ -772,12 +772,11 @@ MUN simulations engage thousands of students each year in developing public spea
                                         Click below to view our main event
                                         lineup.
                                     </p>
-                                    <button
-                                        className="card-button"
+                                    <FancyButton
                                         onClick={() => setView("events")}
                                     >
                                         View Events
-                                    </button>
+                                    </FancyButton>
                                 </div>
                                 <div className="card">
                                     <h2>Gallery</h2>
@@ -785,12 +784,11 @@ MUN simulations engage thousands of students each year in developing public spea
                                         Check out our gallery to see some of our
                                         achievements.
                                     </p>
-                                    <button
-                                        className="card-button"
+                                    <FancyButton
                                         onClick={() => setView("gallery")}
                                     >
                                         View Gallery
-                                    </button>
+                                    </FancyButton>
                                 </div>
                             </div>
                         </div>
@@ -806,12 +804,11 @@ MUN simulations engage thousands of students each year in developing public spea
                                     <p className="highlight-description">
                                         {highlight.description}
                                     </p>
-                                    <button
-                                        className="card-button"
+                                    <FancyButton
                                         onClick={() => setHighlight(null)}
                                     >
                                         Back to Events
-                                    </button>
+                                    </FancyButton>
                                 </div>
                                 <div className="gallery-wrapper">
                                     <div className="gallery-items">
@@ -885,8 +882,7 @@ MUN simulations engage thousands of students each year in developing public spea
                                                     <p className="description">
                                                         {event.description}
                                                     </p>
-                                                    <button
-                                                        className="event-desc"
+                                                    <FancyButton
                                                         onClick={() =>
                                                             setHighlight(
                                                                 highlightData[
@@ -896,7 +892,7 @@ MUN simulations engage thousands of students each year in developing public spea
                                                         }
                                                     >
                                                         Read More
-                                                    </button>
+                                                    </FancyButton>
                                                 </div>
                                             </li>
                                         ))}

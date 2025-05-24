@@ -1,53 +1,54 @@
-.custom-btn {
-    width: 115px;
-    height: 36px;
-    color: #fff;
-    border-radius: 5px;
-    padding: 10px 25px;
-    font-family: "Lato", sans-serif;
-    font-weight: 500;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.btn-aware {
     position: relative;
-    display: inline-block;
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-        7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-    outline: none;
-}
-
-.btn-9 {
-    border: none;
-    transition: all 0.3s ease;
     overflow: hidden;
+    color: #e0f7ff;
+    background: none;
+    border: 1px solid #44ccff;
+    cursor: none;
+    margin-top: 10px;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    transition: 0.3s ease;
+    z-index: 1;
 }
 
-.btn-9:after {
+.btn-aware .aware-bg {
+    content: "";
     position: absolute;
-    content: " ";
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: #44ccff;
+    opacity: 0.2;
+    transition: width 0.4s ease, height 0.4s ease, opacity 0.3s ease;
     z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #1fd1f9;
-    background-image: linear-gradient(315deg, #106989 0%, #000046);
-    transition: all 0.3s ease;
 }
 
-.btn-9:hover {
-    background: transparent;
-    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
-        -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
-        inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
-        inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
-    color: #fff;
+.btn-aware:hover .aware-bg {
+    width: 250px;
+    height: 250px;
+    opacity: 0.35;
 }
 
-.btn-9:hover:after {
-    transform: scale(2) rotate(180deg);
-    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
-        -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
-        inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
-        inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
+.btn-aware:hover {
+    background: none;
+    color: #000; /* Text becomes darker on light blur */
+}
+
+.light .btn-aware {
+    color: #007acc;
+    border-color: #007acc;
+}
+
+.light .btn-aware:hover {
+    color: white;
+}
+
+.light .btn-aware .aware-bg {
+    background: #007acc;
 }
