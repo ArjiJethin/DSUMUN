@@ -9,6 +9,8 @@ const MorphingText = ({ texts = ["Welcome", "to", "DSUMUN", "III"] }) => {
             text2: document.getElementById("text2"),
         };
 
+        if (!elts.text1 || !elts.text2) return;
+
         let textIndex = texts.length - 1;
         let time = new Date();
         let morph = 0;
@@ -16,6 +18,8 @@ const MorphingText = ({ texts = ["Welcome", "to", "DSUMUN", "III"] }) => {
 
         const morphTime = 1;
         const cooldownTime = 0.25;
+
+        let animationFrame;
 
         function doMorph() {
             morph -= cooldown;
@@ -57,7 +61,8 @@ const MorphingText = ({ texts = ["Welcome", "to", "DSUMUN", "III"] }) => {
         }
 
         function animate() {
-            requestAnimationFrame(animate);
+            animationFrame = requestAnimationFrame(animate);
+
             let newTime = new Date();
             let dt = (newTime - time) / 1000;
             time = newTime;
@@ -77,7 +82,12 @@ const MorphingText = ({ texts = ["Welcome", "to", "DSUMUN", "III"] }) => {
 
         elts.text1.textContent = texts[textIndex % texts.length];
         elts.text2.textContent = texts[(textIndex + 1) % texts.length];
-        animate();
+
+        animationFrame = requestAnimationFrame(animate);
+
+        return () => {
+            cancelAnimationFrame(animationFrame);
+        };
     }, [texts]);
 
     return (

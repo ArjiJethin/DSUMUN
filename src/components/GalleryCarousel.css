@@ -136,6 +136,10 @@
     right: -7.5rem;
 }
 
+.light .nav.right {
+    color: black;
+}
+
 .nav:disabled {
     opacity: 0.3;
     cursor: not-allowed;
