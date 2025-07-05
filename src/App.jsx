@@ -723,7 +723,7 @@ MUN simulations engage thousands of students each year in developing public spea
                         </div>
                         <div className="row">
                             <span className="left"></span>
-                            <span className="edition gold">EDITION II</span>
+                            <span className="edition gold">EDITION III</span>
                         </div>
                     </div>
                 </div>
